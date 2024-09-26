@@ -17,11 +17,11 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Login to DockerHub
-        run: echo "${{ secrets.mT-3BM!zbgiaUM3 }}" | docker login -u "${{ secrets.amandock8252 }}" --password-stdin
+        run: echo "${{ secrets.Amanpass_2003 }}" | docker login -u "${{ secrets.Amanid_2003 }}" --password-stdin
 
       - name: Build and Push Docker Image
         run: |
           docker build -t amandock8252/my-devops-image .
-          docker tag amandock8252/my-devops-image:latest amandock8252/my-devops-image:${{ github.sha }}
-          docker push amandock8252/my-devops-image:latest
-          docker push amandock8252/my-devops-image:${{ github.sha }}
+          docker tag Amanid_2003/my-devops-image:latest amandock8252/my-devops-image:${{ github.sha }}
+          docker push Amanid_2003/my-devops-image:latest
+          docker push Amanid_2003/my-devops-image:${{ github.sha }}
