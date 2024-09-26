@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
 
-      - name: Login to DockerHub
-        run: echo "${{ secrets.Amanpass_2003 }}" | docker login -u "${{ secrets.Amanid_2003 }}" --password-stdin
+    - name: Login to DockerHub
+      run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
-      - name: Build and Push Docker Image
-        run: |
-          docker build -t Amanid_2003/my-devops-image .
-          docker tag Amanid_2003/my-devops-image:latest Amanid_2003/my-devops-image:${{ github.sha }}
-          docker push Amanid_2003/my-devops-image:latest
-          docker push Amanid_2003/my-devops-image:${{ github.sha }}
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t your-dockerhub-username/my-devops-image .
+        docker tag your-dockerhub-username/my-devops-image:latest your-dockerhub-username/my-devops-image:${{ github.sha }}
+        docker push your-dockerhub-username/my-devops-image:latest
+        docker push your-dockerhub-username/my-devops-image:${{ github.sha }}
