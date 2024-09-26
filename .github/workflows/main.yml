@@ -21,7 +21,7 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t amandock8252/my-devops-image .
-          docker tag Amanid_2003/my-devops-image:latest amandock8252/my-devops-image:${{ github.sha }}
+          docker build -t Amanid_2003/my-devops-image .
+          docker tag Amanid_2003/my-devops-image:latest Amanid_2003/my-devops-image:${{ github.sha }}
           docker push Amanid_2003/my-devops-image:latest
           docker push Amanid_2003/my-devops-image:${{ github.sha }}
