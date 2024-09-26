@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        run: echo "${{ secrets.mT-3BM!zbgiaUM3 }}" | docker login -u "${{ secrets.amandock8252 }}" --password-stdin
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t amandock8252/my-devops-image .
+          docker tag amandock8252/my-devops-image:latest amandock8252/my-devops-image:${{ github.sha }}
+          docker push amandock8252/my-devops-image:latest
+          docker push amandock8252/my-devops-image:${{ github.sha }}
